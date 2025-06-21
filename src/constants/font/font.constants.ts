@@ -18,13 +18,13 @@ export type typographyType = [
 ];
 
 
-export type TextSize = {
+export interface TextSize {
   Bold: RuleSet;
   Medium: RuleSet;
   Regular: RuleSet;
 };
 
-export type TypographyStyles = {
+export interface TypographyStyles {
   Pretendard: {
     Title1: TextSize;
     Title2: TextSize;
@@ -39,6 +39,8 @@ export type TypographyStyles = {
     Caption2: TextSize;
   },
   VITRO: {
+    Extra1: RuleSet;
+    Extra2: RuleSet
     Title1: RuleSet;
     Title2: RuleSet;
     Title3: RuleSet;
@@ -164,16 +166,19 @@ export const nokTypograpy: TypographyStyles = Object.freeze({
       Bold: css`
         font-family: "Pretendard-Bold";
         font-size: 18px;
+        letter-spacing: -0.44px;
       `,
       Medium: css`
         font-family: "Pretendard-Medium";
         font-size: 18px;
         line-height: 150%;
+        letter-spacing: -0.44px;
       `,
       Regular: css`
         font-family: "Pretendard-Regular";
         font-size: 18px;
         line-height: 150%;
+        letter-spacing: -0.44px;
       `,
     },
   
@@ -286,11 +291,13 @@ export const nokTypograpy: TypographyStyles = Object.freeze({
       font-family: "VITRO INSPIRE OTF";
       font-size: 48px;
       line-height: 150%;
+      letter-spacing: -1.08px;
     `,
     Extra2: css`
       font-family: "VITRO INSPIRE OTF";
       font-size: 40px;
       line-height: 120%;
+      letter-spacing: -0.84px;
     `,
     Title1: css`
       font-family: "VITRO INSPIRE OTF";

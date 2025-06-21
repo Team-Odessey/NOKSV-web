@@ -12,6 +12,7 @@ build
 dist
 dist-ssr
 *.local
+config
 
 # Editor directories and files
 .vscode/*
