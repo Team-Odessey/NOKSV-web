@@ -1,4 +1,4 @@
-import { ServerInfoMain } from "@src/components/common/Main/style"
+import { ServerInfoMain } from "@src/pages/MainPage/style"
 import NokButton from "@src/components/common/ui/NokButton"
 import { nokPalette } from "@src/constants/color/color.constants"
 import { SERVER_EVENT } from "@src/constants/dummy/event.dummy"

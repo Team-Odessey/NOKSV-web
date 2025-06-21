@@ -3,7 +3,7 @@ import { nokPalette } from "@src/constants/color/color.constants"
 import styled from "styled-components"
 import Person from '@src/assets/icons/profile.svg?react';
 import { SERVER_STATUS } from "@src/constants/dummy/serverstatus.dummy"
-import { ServerInfoMain } from "@src/components/common/Main/style";
+import { ServerInfoMain } from "@src/pages/MainPage/style";
 
 const ServerStatus = () => {
   return (
