@@ -1,14 +1,16 @@
 import { nokPalette } from "@src/constants/color/color.constants"
 import { nokTypograpy } from "@src/constants/font/font.constants"
+import { MainContentsBox } from "@src/styles/globalStyles"
 import styled from "styled-components"
 
-export const MainContainer = styled.section`
+export const MainPageContainer = styled.main`
   display: flex;
   flex-direction: column;
-  padding: 32px 108px;
-  background-color: ${nokPalette.backgroundNormal};
-  width: 100%;
-  height: 1200px;
+  width: 100vw;
+  min-height: 832px;
+`
+
+export const MainContainer = styled(MainContentsBox)`
   gap: 48px;
 `
 

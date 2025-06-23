@@ -22,7 +22,7 @@ export const MENU = [
   },
   {
     text: "공지사항",
-    url: "/guild",
+    url: "/notification",
     icon: Notification,
   },
   {

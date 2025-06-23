@@ -61,6 +61,7 @@ const NokHoverProvider = styled.button<{
   height: ${({ $height }) => $height || "36px"};
   border: none;
   background-color: transparent;
+  border-radius: 4px;
   > :hover {
     background-color: ${({ $isFilled, $canInteract }) => $canInteract === "true" ? ($isFilled === "true" ? nokPalette.backgroundNeutral : nokPalette.fillAlternative) : ""};
     border: 1.5px solid ${({ $isFilled, $color, $canInteract }) => ($color && $canInteract === "false") ? $color : ($color && $isFilled === "false") ? $color : nokPalette.fillNormal};

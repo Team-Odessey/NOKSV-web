@@ -3,11 +3,11 @@ import ServerRecord from "@src/components/main/ServerRecord"
 import ServerStatus from "@src/components/main/ServerStatus"
 import ServerEvent from "@src/components/main/ServerEvent";
 import NokButton from "@src/components/common/ui/NokButton";
-import styled from "styled-components"
 import * as S from './style';
+
 const MainPage = () => {
   return (
-    <MainPageContainer>
+    <S.MainPageContainer>
       <Banner/>
       <S.MainContainer>
       <ServerRecord/>
@@ -41,14 +41,9 @@ const MainPage = () => {
         </S.ServerInfoMain>
       </S.ServerInfoContainer>
     </S.MainContainer>
-    </MainPageContainer>
+    </S.MainPageContainer>
   )
 }
 
-const MainPageContainer = styled.main`
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  min-height: 832px;
-`
+
 export default MainPage

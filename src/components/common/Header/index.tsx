@@ -11,12 +11,21 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <HeaderContainer>
-      <NokButton width="132px" text="메뉴" onClickFn={() => setIsMenuOpen(prev => !prev)}/>
-      {isMenuOpen && <MenuModal/>}
-      <Link to={'/'}>NOK</Link>
-      <NokButton width="132px" icon={<Profile width={20} height={20}/>}/>
+      <NokButton
+        width="132px"
+        text="메뉴"
+        onClickFn={() => setIsMenuOpen((prev) => !prev)}
+        isFilled
+      />
+      {isMenuOpen && <MenuModal />}
+      <Link to={"/"}>NOK</Link>
+      <NokButton
+        isFilled
+        width="132px"
+        icon={<Profile width={20} height={20} />}
+      />
     </HeaderContainer>
-  )
+  );
 }
 
 const HeaderContainer = styled.header`
