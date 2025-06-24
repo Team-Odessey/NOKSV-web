@@ -17,13 +17,13 @@ const ServerStatus = () => {
           text={`${SERVER_STATUS.status}`}
           width="100%"
           height="48px"
-          color={nokPalette.primaryNormal}
+          color={SERVER_STATUS.status === "ONLINE" ? nokPalette.primaryNormal : nokPalette.labelDisabled}
         />
         <NokButton
           isFilled={false}
           isTexted
           canInteract={false}
-          text={`${SERVER_STATUS.onlineplayer}/100`}
+          text={`${SERVER_STATUS.onlinePlayer}/100`}
           width="100%"
           height="48px"
           icon={<Person width={20} height={20} />}

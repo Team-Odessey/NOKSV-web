@@ -5,10 +5,11 @@ import styled from "styled-components"
 import Profile from "@src/assets/icons/profile.svg?react"
 import { useState } from "react"
 import MenuModal from "@src/components/common/Header/MenuModal"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const nav = useNavigate();
   return (
     <HeaderContainer>
       <NokButton
@@ -23,6 +24,7 @@ const Header = () => {
         isFilled
         width="132px"
         icon={<Profile width={20} height={20} />}
+        onClickFn={() => nav("/profile/Tetromino_04")}
       />
     </HeaderContainer>
   );
