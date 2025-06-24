@@ -21,6 +21,4 @@ export const MainContentsBox = styled.div`
   background-color: ${nokPalette.backgroundNormal};
   width: 100vw;
   min-height: 832px;
-
-  
 `

@@ -2,6 +2,7 @@ import { useSearch } from '@src/hooks/search/useSearch'
 import * as S from './style'
 import { NOTIFICATION } from '@src/constants/dummy/notification.dummy'
 import NotificationItem from '@src/components/notification/NotificationItem'
+import NokTextInput from '@src/components/common/ui/NokTextInput'
 
 const NotificationPage = () => {
   const {searchData, handleChangeSearchInput} = useSearch();
@@ -9,7 +10,7 @@ const NotificationPage = () => {
     <S.NotificationPageContainer>
       <div>
         공지사항
-        <input type='text' placeholder='공지사항 검색' value={searchData} onChange={handleChangeSearchInput}/>
+        <NokTextInput placeholder='공지사항 검색' value={searchData} handleChange={handleChangeSearchInput}/>
       </div>
       {NOTIFICATION.filter(item => item.title.includes(searchData)).length <= 0 }
       <S.NotificationItemContainer>
