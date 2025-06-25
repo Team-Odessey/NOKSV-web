@@ -2,7 +2,6 @@ import NokButton from "@src/components/common/ui/NokButton"
 import { nokPalette } from "@src/constants/color/color.constants"
 import { nokTypograpy } from "@src/constants/font/font.constants"
 import styled from "styled-components"
-import Profile from "@src/assets/icons/profile.svg?react"
 import { useState } from "react"
 import MenuModal from "@src/components/common/Header/MenuModal"
 import { Link, useNavigate } from "react-router-dom"
@@ -10,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom"
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const nav = useNavigate();
+  const username = localStorage.getItem("username");
+
   return (
     <HeaderContainer>
       <NokButton
@@ -23,8 +24,8 @@ const Header = () => {
       <NokButton
         isFilled
         width="132px"
-        icon={<Profile width={20} height={20} />}
-        onClickFn={() => nav("/profile/Tetromino_04")}
+        text={username || "로그인하기"}
+        onClickFn={() => nav(username ? `/profile/${username}` : "/login")}
       />
     </HeaderContainer>
   );

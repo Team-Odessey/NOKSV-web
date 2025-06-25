@@ -1,6 +1,11 @@
+import * as S from './style';
+
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <S.FooterContainer>
+      <p>NOKSV - Minecraft Server</p>
+      Email : pjmin0923@gmail.com
+    </S.FooterContainer>
   )
 }
 

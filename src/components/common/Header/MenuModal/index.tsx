@@ -9,7 +9,7 @@ const MenuModal = () => {
       {MENU.map((item) => (
         <S.MenuModalButton
           to={item.url}
-          $isLocated={(location.pathname === item.url).toString()}
+          $isLocated={(location.pathname.includes(item.url)).toString()}
           key={item.text}
         >
           <item.icon width={16} height={16} />

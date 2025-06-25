@@ -5,14 +5,16 @@ interface NokTextInputProps {
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
+  type?: string;
 }
 const NokTextInput = ({
   value,
   handleChange,
-  placeholder
+  placeholder,
+  type = "text"
 }: NokTextInputProps) => {
   return (
-    <NokTextInputStyled type='text' placeholder={placeholder} value={value} onChange={handleChange}/>
+    <NokTextInputStyled type={type} placeholder={placeholder} value={value} onChange={handleChange}/>
   )
 }
 const NokTextInputStyled = styled.input`

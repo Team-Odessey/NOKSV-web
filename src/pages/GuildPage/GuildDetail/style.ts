@@ -1,5 +1,6 @@
 import { nokPalette } from "@src/constants/color/color.constants";
 import { nokTypograpy } from "@src/constants/font/font.constants";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const GuildDetailHeader = styled.div`
@@ -76,4 +77,10 @@ export const GuildProfileData = styled.section`
       color: ${nokPalette.labelNormal};
     }
   }
+`
+
+export const GuildMemberLink = styled(Link)`
+  text-decoration: none;
+  color: ${nokPalette.labelNormal};
+  display: inline;
 `

@@ -7,6 +7,7 @@ export interface UserType {
   registerAt: string;
   playtime: number;
   killcount: number;
+  isPublic: boolean;
 }
 
 export const UserRankFinder: Record<UserRankType, string> = {
@@ -24,11 +25,32 @@ interface rankInfo {
   level: number;
 }
 
+
+export const USER_IDPW = [
+  {
+    name: "Tetromino_04",
+    password: "woals1234!!"
+  },
+  {
+    name: "oowgnajiohc",
+    password: "password",
+  },
+  {
+    name: "bluechanni",
+    password: "channichanni",
+  },
+  {
+    name: "jbj338033",
+    password: "bao",
+  },
+]
+
 export const USER: UserType[] = [
   {
+    isPublic: true,
     gameName: "Tetromino_04",
     nickName: "박재민",
-    guildName: "[아무개]",
+    guildName: "아무개",
     profileImg: null,
     rank: {
       adventure: {
@@ -65,9 +87,10 @@ export const USER: UserType[] = [
     killcount: 20
   },
   {
+    isPublic: true,
     gameName: "oowgnajiohc",
     nickName: "최장우",
-    guildName: "[아무개]",
+    guildName: "아무개",
     profileImg: null,
     rank: {
       adventure: {
@@ -102,5 +125,85 @@ export const USER: UserType[] = [
     registerAt: "2025. 06. 19.",
     playtime: 1,
     killcount: 1,
+  },
+  {
+    isPublic: true,
+    gameName: "bluechanni",
+    nickName: "김은찬",
+    guildName: "아무개",
+    profileImg: null,
+    rank: {
+      adventure: {
+        ranking: 98,
+        level: 1
+      },
+      farming: {
+        ranking: 98,
+        level: 1
+      },
+      mining: {
+        ranking: 998,
+        level: 1
+      },
+      fishing: {
+        ranking: 998,
+        level: 1
+      },
+      collect: {
+        ranking: 998,
+        level: 1
+      },
+      money: {
+        ranking: 998,
+        level: 1
+      },
+      occupy: {
+        ranking: 998,
+        level: 1
+      },
+    },
+    registerAt: "2025. 07. 20.",
+    playtime: 2,
+    killcount: 0,
+  },
+  {
+    isPublic: true,
+    gameName: "jbj338033",
+    nickName: "전바오",
+    guildName: "아무개",
+    profileImg: null,
+    rank: {
+      adventure: {
+        ranking: 2,
+        level: 98
+      },
+      farming: {
+        ranking: 4,
+        level: 120
+      },
+      mining: {
+        ranking: 1,
+        level: 1000
+      },
+      fishing: {
+        ranking: 1,
+        level: 1000
+      },
+      collect: {
+        ranking: 1,
+        level: 360
+      },
+      money: {
+        ranking: 10000,
+        level: 1
+      },
+      occupy: {
+        ranking: 20,
+        level: 40
+      },
+    },
+    registerAt: "2025. 01. 03.",
+    playtime: 400,
+    killcount: 43,
   },
 ]

@@ -9,6 +9,7 @@ const ServerEvent = () => {
       진행 중인 이벤트
       {SERVER_EVENT.map(item => (
       <NokButton
+        key={item.name}
         isFilled
         isTexted
         text={item.name}

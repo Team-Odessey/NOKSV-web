@@ -4,8 +4,13 @@ import { MainContentsBox } from "@src/styles/globalStyles";
 import styled from "styled-components";
 
 export const ProfilePageContainer = styled(MainContentsBox)`
-  color: ${nokPalette.labelNormal};
-  ${nokTypograpy.VITRO.Extra2};
+  > header {
+    color: ${nokPalette.labelNormal};
+    ${nokTypograpy.VITRO.Extra2};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   > section {
     display: flex;
@@ -40,7 +45,7 @@ export const ProfilePageUserInfo = styled.div`
     justify-content: space-between;
     padding: 8px 0;
 
-    ${nokTypograpy.VITRO.Body2};
+    ${nokTypograpy.VITRO.Body1};
     color: ${nokPalette.labelNormal};
     > div {
       display: flex;
@@ -53,16 +58,6 @@ export const ProfilePageUserInfo = styled.div`
       }
     }
   }
-`
-
-export const ProfileNotfound = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 440px;
-  color: ${nokPalette.labelNormal};
-  ${nokTypograpy.Pretendard.Heading2.Bold}
 `
 
 export const ProfileStat = styled.div`

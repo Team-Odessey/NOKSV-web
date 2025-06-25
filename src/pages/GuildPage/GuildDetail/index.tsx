@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { GUILD, GuildDetailType } from "@src/constants/dummy/guild.dummy";
 import NokButton from "@src/components/common/ui/NokButton";
+import { NotFoundPageContainer } from "@src/pages/NotFoundPage";
+import { nokPalette } from "@src/constants/color/color.constants";
 
 const GuildDetail = () => {
   const { name } = useParams();
@@ -16,7 +18,7 @@ const GuildDetail = () => {
     }
   }, [name])
 
-  return (
+  return guildData ? (
     <MainContentsBox>
       <S.GuildDetailHeader>
         길드 정보
@@ -35,14 +37,9 @@ const GuildDetail = () => {
             <img src="../src/assets/baseguildimg.png" alt="guild img" />
           </S.GuildImgContainer>
           <S.GuildProfileData>
-            [{guildData?.name}]
-            <section>
-              {guildData?.level}Lv
-            </section>
+            [{guildData?.name}]<section>{guildData?.level}Lv</section>
             <span>
-              <strong>
-                {`${guildData?.personCount}`}
-              </strong>
+              <strong>{`${guildData?.personCount}`}</strong>
               {` / 100 명`}
             </span>
           </S.GuildProfileData>
@@ -92,12 +89,35 @@ const GuildDetail = () => {
         <S.GuildInfoItem>
           <div>
             <p>길드원 목록</p>
-            {guildData?.guildMember.map(item => guildData.guildMember.indexOf(item) === guildData.guildMember.length-1 ? item : `${item}, `)}
+            <section>
+              {guildData?.guildMember.map((item) =>
+                <S.GuildMemberLink to={`/profile/${item}`}>
+                  {guildData.guildMember.indexOf(item) ===
+                  guildData.guildMember.length - 1
+                    ? item
+                    : `${item}, `}
+                </S.GuildMemberLink>
+              )}
+            </section>
           </div>
         </S.GuildInfoItem>
       </S.GuildInfoContainer>
     </MainContentsBox>
-  )
+  ) : (
+    <NotFoundPageContainer>
+      <p>해당 길드를 찾을 수 없습니다!</p>
+      {name} 이름의 길드는 존재하지 않습니다.
+      <div>
+        <NokButton
+          text="목록으로"
+          onClickFn={() => nav("/guild")}
+          isFilled
+          color={nokPalette.primaryNormal}
+        />
+        <NokButton text="돌아가기" onClickFn={() => nav(-1)} isFilled />
+      </div>
+    </NotFoundPageContainer>
+  );
 }
 
 export default GuildDetail
