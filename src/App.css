@@ -3,9 +3,14 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: "Pretendard Variable", "VITRO INSPIRE OTF", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: "Pretendard Variable", "VITRO INSPIRE", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 html {
   background-color: #171615;
+}
+
+@font-face {
+  font-family: "VITRO INSPIRE";
+  src: url('../src/constants/font/VITRO_INSPIRE_TTF.ttf')format('truetype')
 }

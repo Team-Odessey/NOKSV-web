@@ -27,7 +27,7 @@ const BannerContainer = styled.section<{$banner: string}>`
   ${nokTypograpy.VITRO.Extra2}
 
   p {
-    font-family: "VITRO INSPIRE OTF";
+    font-family: "VITRO INSPIRE";
     font-size: 64px;
     line-height: 130%;
     letter-spacing: -1.92px;

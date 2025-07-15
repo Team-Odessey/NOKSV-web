@@ -288,78 +288,78 @@ export const nokTypograpy: TypographyStyles = Object.freeze({
   },
   VITRO: {
     Extra1: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 48px;
       line-height: 150%;
       letter-spacing: -1.08px;
     `,
     Extra2: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 40px;
       line-height: 120%;
       letter-spacing: -0.84px;
     `,
     Title1: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 36px;
       line-height: 130%;
       letter-spacing: -1.08px;
     `,
     Title2: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 28px;
       line-height: 130%;
       letter-spacing: -0.84px;
     `,
     Title3: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 24px;
       line-height: 130%;
       letter-spacing: -0.48px;
     `,
     Heading1: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 22px;
       line-height: 130%;
       letter-spacing: -0.44px;
     `,
     Heading2: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 20px;
       line-height: 140%;
       letter-spacing: -0.2px;
     `,
     Headline: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 18px;
       line-height: 150%;
     `,
     Body1: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 16px;
       line-height: 150%;
       letter-spacing: -0.16px;
     `,
     Body2: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 15px;
       line-height: 150%;
       letter-spacing: -0.16px;
     `,
     Label: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 14px;
       line-height: 140%;
       letter-spacing: 0.28px;
     `,
     Caption1: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 13px;
       line-height: 130%;
       letter-spacing: 0.39px;
     `,
     Caption2: css`
-      font-family: "VITRO INSPIRE OTF";
+      font-family: "VITRO INSPIRE";
       font-size: 12px;
       line-height: 130%;
       letter-spacing: 0.36px;

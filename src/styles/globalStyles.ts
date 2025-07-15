@@ -11,11 +11,6 @@ export const GlobalStyles = createGlobalStyle`
     a {
       text-decoration: none;
     }
-    
-    @font-face {
-      font-family: "VITRO INSPIRE OTF";
-      src:url('./src/constants/font/VITRO\ INSPIRE\ OTF.otf')format('opentype')
-    }
 `;
 
 export const MainContentsBox = styled.div`
