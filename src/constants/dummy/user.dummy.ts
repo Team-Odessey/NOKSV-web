@@ -1,3 +1,5 @@
+import { UserRankType } from "@src/types/user/user.type";
+
 export interface UserType {
   gameName: string;
   nickName: string;
@@ -12,14 +14,12 @@ export interface UserType {
 
 export const UserRankFinder: Record<UserRankType, string> = {
   "adventure": "탐험",
-  "farming": "농사",
   "mining": "채광",
-  "fishing": "낚시",
-  "collect": "수집",
   "money": "소지금",
-  "occupy": "점령"
+  "woodCutting": "벌목",
+  "hunt": "사냥"
 }
-export type UserRankType = "adventure" | "farming" | "mining" | "fishing" | "collect" | "money" | "occupy";
+
 interface rankInfo {
   ranking: number;
   level: number;
@@ -57,30 +57,22 @@ export const USER: UserType[] = [
         ranking: 1,
         level: 100
       },
-      farming: {
-        ranking: 19,
-        level: 99
-      },
       mining: {
         ranking: 302,
         level: 12
-      },
-      fishing: {
-        ranking: 108,
-        level: 64
-      },
-      collect: {
-        ranking: 2,
-        level: 355
       },
       money: {
         ranking: 2,
         level: 120
       },
-      occupy: {
-        ranking: 219,
-        level: 200
+      woodCutting: {
+        ranking: 1,
+        level: 999
       },
+      hunt: {
+        ranking: 1,
+        level: 999
+      }
     },
     registerAt: "2025. 09 23.",
     playtime: 100,
@@ -97,19 +89,7 @@ export const USER: UserType[] = [
         ranking: 99,
         level: 1
       },
-      farming: {
-        ranking: 99,
-        level: 1
-      },
       mining: {
-        ranking: 999,
-        level: 1
-      },
-      fishing: {
-        ranking: 999,
-        level: 1
-      },
-      collect: {
         ranking: 999,
         level: 1
       },
@@ -117,10 +97,14 @@ export const USER: UserType[] = [
         ranking: 999,
         level: 1
       },
-      occupy: {
-        ranking: 999,
-        level: 1
+      woodCutting: {
+        ranking: 1,
+        level: 999
       },
+      hunt: {
+        ranking: 1,
+        level: 999
+      }
     },
     registerAt: "2025. 06. 19.",
     playtime: 1,
@@ -137,19 +121,7 @@ export const USER: UserType[] = [
         ranking: 98,
         level: 1
       },
-      farming: {
-        ranking: 98,
-        level: 1
-      },
       mining: {
-        ranking: 998,
-        level: 1
-      },
-      fishing: {
-        ranking: 998,
-        level: 1
-      },
-      collect: {
         ranking: 998,
         level: 1
       },
@@ -157,10 +129,14 @@ export const USER: UserType[] = [
         ranking: 998,
         level: 1
       },
-      occupy: {
-        ranking: 998,
-        level: 1
+      woodCutting: {
+        ranking: 1,
+        level: 999
       },
+      hunt: {
+        ranking: 1,
+        level: 999
+      }
     },
     registerAt: "2025. 07. 20.",
     playtime: 2,
@@ -177,30 +153,22 @@ export const USER: UserType[] = [
         ranking: 2,
         level: 98
       },
-      farming: {
-        ranking: 4,
-        level: 120
-      },
       mining: {
         ranking: 1,
         level: 1000
-      },
-      fishing: {
-        ranking: 1,
-        level: 1000
-      },
-      collect: {
-        ranking: 1,
-        level: 360
       },
       money: {
         ranking: 10000,
         level: 1
       },
-      occupy: {
-        ranking: 20,
-        level: 40
+      woodCutting: {
+        ranking: 1,
+        level: 999
       },
+      hunt: {
+        ranking: 1,
+        level: 999
+      }
     },
     registerAt: "2025. 01. 03.",
     playtime: 400,

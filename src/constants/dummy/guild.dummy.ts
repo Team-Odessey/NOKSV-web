@@ -1,9 +1,11 @@
+import { GuildImageType } from "@src/components/guild/GuildImage";
+
 export interface GuildType {
   name: string;
   level: number;
   personCount: number;
   discription: string;
-  guildImage: string | null;
+  guildImage: GuildImageType | null;
 }
 
 export interface GuildDetailType extends GuildType {

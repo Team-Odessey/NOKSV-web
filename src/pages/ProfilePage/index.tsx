@@ -1,10 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import * as S from './style';
 import { useEffect, useState } from "react";
-import { USER, UserRankFinder, UserRankType, UserType } from "@src/constants/dummy/user.dummy";
+import { USER, UserRankFinder, UserType } from "@src/constants/dummy/user.dummy";
 import { NotFoundPageContainer } from "@src/pages/NotFoundPage";
 import NokButton from "@src/components/common/ui/NokButton";
 import { nokPalette } from "@src/constants/color/color.constants";
+import { UserRankType } from "@src/types/user/user.type";
 
 const ProfilePage = () => {
   const { id } = useParams();
@@ -51,7 +52,7 @@ const ProfilePage = () => {
           </S.ProfilePageUserInfo>
           <S.ProfileStat>
             스테이터스
-            {(["adventure" , "farming" , "mining" , "fishing"] as UserRankType[])
+            {(["adventure" , "mining" , "hunt", "woodCutting"] as UserRankType[])
             .map(item => (
             <S.ProfileStatItem key={item}>
               <p>{UserRankFinder[item]}</p>
@@ -61,7 +62,7 @@ const ProfilePage = () => {
         </aside>
         <S.ProfileRankContainer>
           랭킹
-          {(["adventure" , "farming" , "mining" , "fishing", "collect", "money", "occupy"] as UserRankType[])
+          {(["adventure" , "mining" , "money", "hunt", "woodCutting"] as UserRankType[])
           .map(item => (
             <S.ProfileRankItem key={item}>
               <div>
@@ -75,10 +76,7 @@ const ProfilePage = () => {
                   </S.ProfileRankNumber>
                 </div>
               </div>
-              {item === "collect" ? `${userData.rank[item].level} / 360`
-              : item === "occupy" ? `${userData.rank[item].level} 개`
-              : item === "money" ? `${userData.rank[item].level} CR`
-              : ""}
+              {userData.rank[item].level}{item === "money" ? "CR" : "등"}
             </S.ProfileRankItem>
           ))}
         </S.ProfileRankContainer>
