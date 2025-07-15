@@ -3,10 +3,11 @@ import * as S from './style';
 import { useInputBar } from '@src/hooks/InputBar/useInputBar';
 import NokTextInput from '@src/components/common/ui/NokTextInput';
 import GuildItem from '@src/components/guild/GuildItem';
-import { GUILD } from '@src/constants/dummy/guild.dummy';
+import { useGetAllGuilds } from '@src/queries/guild/guild.query';
 
 const GuildPage = () => {
   const {inputData, handleChangeInput} = useInputBar();
+  const { data } = useGetAllGuilds();
   return (
     <MainContentsBox>
       <S.GuildHeader>
@@ -14,7 +15,7 @@ const GuildPage = () => {
         <NokTextInput placeholder='길드 검색' value={inputData} handleChange={handleChangeInput}/>
       </S.GuildHeader>
       <S.GuildItemContainer>
-        {GUILD.filter(item => item.name.includes(inputData)).map(item => (
+        {data?.filter(item => item.name.includes(inputData)).map(item => (
           <GuildItem data={item}/>
         ))}
       </S.GuildItemContainer>

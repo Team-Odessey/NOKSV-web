@@ -1,21 +1,21 @@
-import { GuildType } from '@src/constants/dummy/guild.dummy'
 import * as S from './style'
 import GuildImage from '../GuildImage';
+import { GuildRes } from '@src/types/guild/guild.type';
 
 interface GuildItemProps {
-  data: GuildType;
+  data: GuildRes;
 }
 
 const GuildItem = ({data}: GuildItemProps) => {
   return (
     <S.GuildItemContainer to={`${data.name}`}>
-      <GuildImage imageName={data.guildImage || 'oak_wook'}/>
+      <GuildImage imageName={'oak_wook'}/>
       <S.GuildItemData>
         <S.GuildItemHeader>
           [{data.name}]
-          <p>{`${data.level}Lv • ${data.personCount}명`}</p>
+          <p>{`${data.level}Lv • ${data.members.length}명`}</p>
         </S.GuildItemHeader>
-        {data.discription}
+        {data.description}
       </S.GuildItemData>
     </S.GuildItemContainer>
   )

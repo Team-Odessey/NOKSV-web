@@ -1,12 +1,13 @@
 import { nokPalette } from "@src/constants/color/color.constants"
-import { NotificationType } from "@src/constants/dummy/notification.dummy"
 import { nokTypograpy } from "@src/constants/font/font.constants"
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
+import { NoticeRes } from "@src/types/notice/notice.type";
+import dayjs from "dayjs";
 
 interface NotificationItemProps {
-  data: NotificationType;
+  data: NoticeRes;
 }
 
 const NotificationItem = ({
@@ -16,14 +17,14 @@ const NotificationItem = ({
     <NoticeItemContainer to={`${data.id}`}>
       <NoticeMain>
         <header>
-          <span>{data.tag === "patch" ? "패치노트" : "공지사항"}</span>
+          <span>{data.type === "PATCH_NOTE" ? "패치노트" : "공지사항"}</span>
           <p>{data.title}</p>
         </header>
         <ReactMarkdown>
           {data.content.length >= 100 ? data.content.substring(0, 100) + ".." : data.content}
         </ReactMarkdown>
       </NoticeMain>
-      {data.writeAt}
+      {dayjs(data.createdAt).format("YYYY-MM-DD")}
     </NoticeItemContainer>
   )
 }
