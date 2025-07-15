@@ -1,7 +1,7 @@
 import { UserRankType } from "@src/types/user/user.type";
 
 export interface UserType {
-  gameName: string;
+  userName: string;
   nickName: string;
   guildName: string;
   profileImg: string | null;
@@ -48,7 +48,7 @@ export const USER_IDPW = [
 export const USER: UserType[] = [
   {
     isPublic: true,
-    gameName: "Tetromino_04",
+    userName: "Tetromino_04",
     nickName: "박재민",
     guildName: "아무개",
     profileImg: null,
@@ -80,7 +80,7 @@ export const USER: UserType[] = [
   },
   {
     isPublic: true,
-    gameName: "oowgnajiohc",
+    userName: "oowgnajiohc",
     nickName: "최장우",
     guildName: "아무개",
     profileImg: null,
@@ -112,7 +112,7 @@ export const USER: UserType[] = [
   },
   {
     isPublic: true,
-    gameName: "bluechanni",
+    userName: "bluechanni",
     nickName: "김은찬",
     guildName: "아무개",
     profileImg: null,
@@ -144,7 +144,7 @@ export const USER: UserType[] = [
   },
   {
     isPublic: true,
-    gameName: "jbj338033",
+    userName: "jbj338033",
     nickName: "전바오",
     guildName: "아무개",
     profileImg: null,

@@ -20,7 +20,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     if (id) {
-      setUserData(USER.find(item => item.gameName === id) || null)
+      setUserData(USER.find(item => item.userName === id) || null)
     }
   }, [id])
 
@@ -28,7 +28,7 @@ const ProfilePage = () => {
     <S.ProfilePageContainer>
       <header>
         프로필
-        {(myName === userData.gameName) && (
+        {(myName === userData.userName) && (
           <NokButton
             isFilled 
             color={nokPalette.statusNegative} 
@@ -41,10 +41,10 @@ const ProfilePage = () => {
       <section>
         <aside>
           <S.ProfilePageUserInfo>
-            <img alt="profile Img" src="../src/assets/baseprofileimg.jpeg"/>
+            <img alt="profile Img" src={`https://mc-heads.net/avatar/${userData.userName}`}/>
             <section>
               <div>
-                <p>{userData?.gameName}</p>
+                <p>{userData?.userName}</p>
                 {userData?.nickName}
               </div>
               [{userData?.guildName}] 길드

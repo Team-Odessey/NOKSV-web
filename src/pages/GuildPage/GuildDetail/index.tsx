@@ -6,6 +6,7 @@ import { GUILD, GuildDetailType } from "@src/constants/dummy/guild.dummy";
 import NokButton from "@src/components/common/ui/NokButton";
 import { NotFoundPageContainer } from "@src/pages/NotFoundPage";
 import { nokPalette } from "@src/constants/color/color.constants";
+import GuildImage from "@src/components/guild/GuildImage";
 
 const GuildDetail = () => {
   const { name } = useParams();
@@ -34,7 +35,7 @@ const GuildDetail = () => {
       <S.GuildInfoContainer>
         <S.GuildProfile>
           <S.GuildImgContainer>
-            <img src="../src/assets/baseguildimg.png" alt="guild img" />
+            <GuildImage imageName={guildData.guildImage || 'oak_wook'}/>
           </S.GuildImgContainer>
           <S.GuildProfileData>
             [{guildData?.name}]<section>{guildData?.level}Lv</section>
