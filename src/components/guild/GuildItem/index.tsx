@@ -1,14 +1,15 @@
 import { GuildType } from '@src/constants/dummy/guild.dummy'
 import * as S from './style'
+import BaseGuildImg from '@src/assets/baseguildimg.png';
 
 interface GuildItemProps {
   data: GuildType;
 }
 
-const GuildItem = ({data}:GuildItemProps) => {
+const GuildItem = ({data}: GuildItemProps) => {
   return (
     <S.GuildItemContainer to={`${data.name}`}>
-      <img src={data.guildImage || "../src/assets/baseguildimg.png"} alt="guild img" />
+      <img src={data.guildImage || BaseGuildImg} alt="guild img" />
       <S.GuildItemData>
         <S.GuildItemHeader>
           [{data.name}]
