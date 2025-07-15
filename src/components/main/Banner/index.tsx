@@ -19,7 +19,7 @@ const BannerContainer = styled.section<{$banner: string}>`
   align-items: center;
   width: 100%;
   height: 360px;
-  background: linear-gradient(0deg, #262423 0%, rgba(38, 36, 35, 0.53) 55%, rgba(38, 36, 35, 0.20) 100%), url(Banner) center no-repeat;
+  background: ${({ $banner }) => `linear-gradient(0deg, #262423 0%, rgba(38, 36, 35, 0.53) 55%, rgba(38, 36, 35, 0.20) 100%), url(${$banner}) center no-repeat`};
   background-size: cover;
 
   color: ${nokPalette.labelNormal};
