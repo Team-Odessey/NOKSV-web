@@ -12,5 +12,5 @@ html {
 
 @font-face {
   font-family: "VITRO INSPIRE OTF";
-  src:url('../src/constants/font/VITRO\ INSPIRE\ OTF.otf')format('opentype')
+  src:url('./src/constants/font/VITRO\ INSPIRE\ OTF.otf')format('opentype')
 }
