@@ -8,6 +8,7 @@ import GuildPage from '@src/pages/GuildPage'
 import GuildDetail from '@src/pages/GuildPage/GuildDetail'
 import NotFoundPage from '@src/pages/NotFoundPage'
 import Login from '@src/components/auth/Login'
+import RankingPage from '@src/pages/RankingPage'
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
           <Route path='/profile/:id' element={<ProfilePage/>}/>
           <Route path='/guild' element={<GuildPage/>} />
           <Route path='/guild/:name' element={<GuildDetail/>} />
+          <Route path='/ranking' element={<RankingPage/>}/>
           <Route path='/*' element={<NotFoundPage/>}/>
         </Route>
       </Routes>

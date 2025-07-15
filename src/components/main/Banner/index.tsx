@@ -5,9 +5,8 @@ import styled from "styled-components"
 const Banner = () => {
   return (
     <BannerContainer>
-      세계를 개척하고 정복하라!
       <p>NOKSV</p>
-      신개념 RP기반 마인크래프트 서버
+      신개념 아포칼립스 마인크래프트 서버
     </BannerContainer>
   )
 }

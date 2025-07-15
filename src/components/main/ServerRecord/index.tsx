@@ -8,7 +8,7 @@ const ServerRecord = () => {
   return (
     <ServerRecordContainer>
       <ServerRecordItem>누적 접속 <p>{formatNumberWithCommas(RECORD.totalConnect)}</p></ServerRecordItem>
-      <ServerRecordItem>디스코드 멤버 <p>{formatNumberWithCommas(RECORD.discordMember)}</p></ServerRecordItem>
+      <ServerRecordItem>서버 개설 <p>2025. 07. 15.</p></ServerRecordItem>
       <ServerRecordItem>최고 동시접속자 <p>{formatNumberWithCommas(RECORD.highPlayerCount)}</p></ServerRecordItem>
     </ServerRecordContainer>
   )
