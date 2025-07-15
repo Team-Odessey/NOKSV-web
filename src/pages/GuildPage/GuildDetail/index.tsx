@@ -1,21 +1,21 @@
 import { MainContentsBox } from "@src/styles/globalStyles"
 import * as S from './style';
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { GUILD, GuildDetailType } from "@src/constants/dummy/guild.dummy";
 import NokButton from "@src/components/common/ui/NokButton";
 import { NotFoundPageContainer } from "@src/pages/NotFoundPage";
 import { nokPalette } from "@src/constants/color/color.constants";
 import GuildImage from "@src/components/guild/GuildImage";
+import { useGetGuildByName } from "@src/queries/guild/guild.query";
+import { useEffect } from "react";
 
 const GuildDetail = () => {
   const { name } = useParams();
   const nav = useNavigate();
-  const [guildData, setGuildData] = useState<GuildDetailType | null>(null);
+  const { data: guildData, refetch } = useGetGuildByName(name!, {enabled: false});
 
   useEffect(() => {
-    if (name) {
-      setGuildData(GUILD.find(item => item.name === name) || null)
+    if(name) {
+      refetch()
     }
   }, [name])
 
@@ -35,12 +35,12 @@ const GuildDetail = () => {
       <S.GuildInfoContainer>
         <S.GuildProfile>
           <S.GuildImgContainer>
-            <GuildImage imageName={guildData.guildImage || 'oak_wook'}/>
+            <GuildImage imageName={'oak_wook'}/>
           </S.GuildImgContainer>
           <S.GuildProfileData>
             [{guildData?.name}]<section>{guildData?.level}Lv</section>
             <span>
-              <strong>{`${guildData?.personCount}`}</strong>
+              <strong>{`${guildData?.memberCount}`}</strong>
               {` / 100 명`}
             </span>
           </S.GuildProfileData>
@@ -48,21 +48,21 @@ const GuildDetail = () => {
         <S.GuildInfoItem>
           <div>
             <p>길드장</p>
-            {guildData?.guildMaster}
+            {guildData?.members.find(item => item.role === "MASTER")?.memberNickname}
           </div>
           <div>
             <p>부길드장</p>
-            {guildData?.guildSubMaster}
+            {guildData?.members.find(item => item.role === "SUB_MASTER")?.memberNickname}
           </div>
         </S.GuildInfoItem>
         <S.GuildInfoItem>
           <div>
             <p>길드 순위</p>
-            {guildData?.rank}
+            {guildData?.level}
           </div>
           <div>
             <p>길드 창설일</p>
-            {guildData?.createdAt}
+            {guildData?.creationDate}
           </div>
         </S.GuildInfoItem>
       </S.GuildInfoContainer>
@@ -70,19 +70,13 @@ const GuildDetail = () => {
         <S.GuildInfoItem>
           <div>
             <p>길드 소개</p>
-            {guildData?.discription}
-          </div>
-        </S.GuildInfoItem>
-        <S.GuildInfoItem>
-          <div>
-            <p>가입 조건</p>
-            {guildData?.condition}
+            {guildData?.description}
           </div>
         </S.GuildInfoItem>
         <S.GuildInfoItem>
           <div>
             <p>문의</p>
-            {guildData?.contact}
+            {guildData?.inquiryChannel}
           </div>
         </S.GuildInfoItem>
       </S.GuildInfoContainer>
@@ -91,12 +85,12 @@ const GuildDetail = () => {
           <div>
             <p>길드원 목록</p>
             <section>
-              {guildData?.guildMember.map((item) =>
+              {guildData?.members.map((item) =>
                 <S.GuildMemberLink to={`/profile/${item}`}>
-                  {guildData.guildMember.indexOf(item) ===
-                  guildData.guildMember.length - 1
-                    ? item
-                    : `${item}, `}
+                  {guildData.members.indexOf(item) ===
+                  guildData.members.length - 1
+                    ? item.memberNickname
+                    : `${item.memberNickname}, `}
                 </S.GuildMemberLink>
               )}
             </section>

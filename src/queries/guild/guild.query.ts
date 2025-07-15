@@ -18,7 +18,7 @@ export const useGetAllGuilds = (
     }
   );
 
-export const useGetNoticeByName = (
+export const useGetGuildByName = (
   name: string,
   options?: UseQueryOptions<GuildRes, AxiosError>
 ): UseQueryResult<GuildRes, AxiosError> =>

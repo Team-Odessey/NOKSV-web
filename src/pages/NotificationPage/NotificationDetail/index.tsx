@@ -1,21 +1,16 @@
-import { NOTIFICATION, NotificationType } from "@src/constants/dummy/notification.dummy"
-import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import NokButton from "@src/components/common/ui/NokButton";
 import * as S from './style';
 import { exchangeNoticeTag } from "@src/utils/exchangeText/exchangeNoticeTag";
+import { useGetAllNotices, useGetNoticeByName } from "@src/queries/notice/notice.query";
+import dayjs from "dayjs";
 
 const NotificationDetail = () => {
   const nav = useNavigate();
   const params = useParams();
-  const [detailData, setDetailData] = useState<NotificationType>();
-  
-  useEffect(() => {
-    if (params.id) {
-      setDetailData(NOTIFICATION.find(item => item.id === +params.id!))
-    }
-  }, [params])
+  const { data: AllNotice } = useGetAllNotices();
+  const { data } = useGetNoticeByName(+params.id!)
 
   return (
     <S.NotificationDetailContainer>
@@ -23,12 +18,12 @@ const NotificationDetail = () => {
       <S.NotificationDetailMain>
         <section>
           <div>
-            <span>{exchangeNoticeTag(detailData?.tag)}</span>
-            {detailData?.title}
-            <time>{detailData?.writeAt}</time>
+            <span>{exchangeNoticeTag(data?.type)}</span>
+            {data?.title}
+            <time>{data?.createdAt}</time>
           </div>
           <ReactMarkdown>
-            {detailData?.content}
+            {data?.content}
           </ReactMarkdown>
         </section>
         <S.NotificationSidebar>
@@ -40,9 +35,9 @@ const NotificationDetail = () => {
             onClickFn={() => nav("/notification")}
           />
           이전 공지
-          {NOTIFICATION.sort((a, b) => b.id - a.id).slice(0, 5).map(item => (
+          {AllNotice?.sort((a, b) => dayjs(b.createdAt).diff(dayjs(a.createdAt))).slice(0, 5).map(item => (
             <S.NotificationNewItem to={`/notification/${item.id}`} key={item.id}>
-              {exchangeNoticeTag(item.tag)}
+              {exchangeNoticeTag(item.type)}
               <p>{item.title}</p>
             </S.NotificationNewItem>
           ))}
