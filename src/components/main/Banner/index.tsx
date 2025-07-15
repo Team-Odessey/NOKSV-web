@@ -18,7 +18,8 @@ const BannerContainer = styled.section`
   align-items: center;
   width: 100%;
   height: 360px;
-  background: linear-gradient(0deg, #262423 0%, rgba(38, 36, 35, 0.53) 55%, rgba(38, 36, 35, 0.20) 100%), url('../src/assets/banner/minecraft-banner.png') center no-repeat;
+  background: linear-gradient(0deg, #262423 0%, rgba(38, 36, 35, 0.53) 55%, rgba(38, 36, 35, 0.20) 100%), url('./src/assets/banner/normal-banner.jpg') center no-repeat;
+  background-size: cover;
 
   color: ${nokPalette.labelNormal};
   user-select: none;
