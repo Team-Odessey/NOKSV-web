@@ -8,7 +8,6 @@ import axios, { AxiosResponse } from 'axios';
 import CONFIG from '@src/config/config.json'
 import { AuthSignUpRes } from '@src/types/auth/auth.type';
 import token from '@src/libs/token/token';
-import { Link } from 'react-router-dom';
 
 const Auth = ({type}: {type: "LOGIN" | "SIGNUP"}) => {
   const { inputData: idData, handleChangeInput: handleChangeId, resetInput: resetId } = useInputBar()
