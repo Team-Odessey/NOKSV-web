@@ -15,7 +15,7 @@ const Auth = ({type}: {type: "LOGIN" | "SIGNUP"}) => {
 
   const nav = useNavigate();
 
-  const verifyLogin = (param: {userName: string; password: string}) => {
+  const verifyLogin = (param: {username: string; password: string}) => {
     try {
       axios.post(`${CONFIG.server}/api/auth/login`, param).then((item: AxiosResponse<AuthSignUpRes>) => {
         token.setToken('access-token', item.data.accessToken)
@@ -29,7 +29,7 @@ const Auth = ({type}: {type: "LOGIN" | "SIGNUP"}) => {
     }
   }
 
-  const verifySignUp = (param: {password: string; userName: string}) => {
+  const verifySignUp = (param: {password: string; username: string}) => {
     try {
       axios.post(`${CONFIG.server}/api/auth/signup`, param).then((item: AxiosResponse<AuthSignUpRes>) => {
         token.setToken('access-token', item.data.accessToken)
@@ -51,7 +51,7 @@ const Auth = ({type}: {type: "LOGIN" | "SIGNUP"}) => {
         color={nokPalette.primaryNormal}
         text={type === "LOGIN" ? "로그인하기" : "회원가입하기"}
         width='280px'
-        onClickFn={() => type === "LOGIN" ? verifyLogin({userName: idData, password: passwordData}) : verifySignUp({userName: idData, password: passwordData})}
+        onClickFn={() => type === "LOGIN" ? verifyLogin({username: idData, password: passwordData}) : verifySignUp({username: idData, password: passwordData})}
       />
     </S.LoginContainer>
   )

@@ -1,6 +1,8 @@
+import { UserRankENUM } from "@src/types/user/user.type";
+
 export const QUERY_KEYS = {
   user: {
-    getUserData: "get/user"
+    getUserMe: "get/user/me"
   },
   notice: {
     getAllNotice: "get/notice/all",
@@ -9,5 +11,8 @@ export const QUERY_KEYS = {
   guild: {
     getAllGuild: "get/guild/all",
     getGuildById: (name: string) => `get/guild/${name}`
+  },
+  rank: {
+    getRankByCategory: (category: UserRankENUM) => `get/rank/${category}`
   }
 }

@@ -2,41 +2,43 @@ import * as S from "./style";
 import MenuButton from "@src/components/common/ui/MenuButton";
 import RankingItem from "@src/components/ranking/RankingItem";
 import { Playtime, Rank, UserDetailItem, UserInfo } from "@src/components/ranking/RankingItem/style";
-import { rankingDummy } from "@src/constants/dummy/ranking.dummy";
+import { useGetRankByCategory } from "@src/queries/ranking/ranking.query";
 import { MainContentsBox } from "@src/styles/globalStyles";
-import { UserRankType } from "@src/types/user/user.type";
+import { UserRankENUM } from "@src/types/user/user.type";
+import dayjs from "dayjs";
 import { useState } from "react";
 
 interface MenuListType {
   text: string;
-  data: UserRankType
+  data: UserRankENUM
 }
 
 const menuList: MenuListType[]  = [
   {
     text: "모험",
-    data: "adventure"
+    data: "ADVENTURE"
   },
   {
     text: "벌목",
-    data: "woodCutting"
+    data: "LUMBERING"
   },
   {
     text: "채광",
-    data: "mining"
+    data: "MINING"
   },
   {
     text: "사냥",
-    data: "hunt"
+    data: "HUNTING"
   },
   {
     text: "소지금",
-    data: "money"
+    data: "MONEY"
   }
 ]
 
 const RankingPage = () => {
-  const [selectedMenu, setSelectedMenu] = useState(menuList.find(item => item.data === "adventure"));
+  const [selectedMenu, setSelectedMenu] = useState(menuList.find(item => item.data === "ADVENTURE"));
+  const { data } = useGetRankByCategory(selectedMenu?.data || "ADVENTURE");
 
   return (
     <MainContentsBox>
@@ -62,21 +64,21 @@ const RankingPage = () => {
         <S.RankingItemHeader>
           <Rank/>
           <UserInfo>유저 이름</UserInfo>
-          <UserDetailItem>{selectedMenu?.text} {selectedMenu?.data === "money" ? "총합" : "레벨"}</UserDetailItem>
+          <UserDetailItem>{selectedMenu?.text} {selectedMenu?.data === "MONEY" ? "총합" : "레벨"}</UserDetailItem>
           <UserDetailItem>길드</UserDetailItem>
           <UserDetailItem>가입일자</UserDetailItem>
           <Playtime>총 접속시간</Playtime>
         </S.RankingItemHeader>
-        {rankingDummy.map((item, idx) => (
+        {data?.map((item, idx) => (
           <RankingItem
             key={item.nickname}
             rank={idx+1}
             level={item.level}
-            guild={item.guild}
+            guildName={item.guildName || ""}
             username={item.username}
             nickname={item.nickname}
-            playtime={item.playtime}
-            joinedAt={item.joinedAt}
+            totalPlayTime={item.totalPlayTime}
+            joinDate={dayjs(item.joinDate).format("YYYY-MM-DD")}
             rankType={menuList.find(item => item.data === selectedMenu?.data)!.data}
           />
         ))}

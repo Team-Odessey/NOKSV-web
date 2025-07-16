@@ -10,6 +10,8 @@ import NotFoundPage from '@src/pages/NotFoundPage'
 import Auth from '@src/pages/Auth'
 import RankingPage from '@src/pages/RankingPage'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { Suspense } from 'react'
+import RankingSkeleton from '../skeleton/RankingSkeleton'
 
 const queryClient = new QueryClient();
 
@@ -24,11 +26,12 @@ const Router = () => {
             <Route path='/signup' element={<Auth type="SIGNUP"/>}/>
             <Route path='/notification' element={<NotificationPage/>}/>
             <Route path='/notification/:id' element={<NotificationDetail/>}/>
+            
+              <Route path='/ranking' element={<Suspense fallback={<RankingSkeleton/>}><RankingPage/></Suspense>}/>
             <Route path='/profile' element={<ProfilePage/>}/>
-            <Route path='/profile/:id' element={<ProfilePage/>}/>
+            {/* <Route path='/profile/:id' element={<ProfilePage/>}/> */}
             <Route path='/guild' element={<GuildPage/>} />
             <Route path='/guild/:name' element={<GuildDetail/>} />
-            <Route path='/ranking' element={<RankingPage/>}/>
             <Route path='/*' element={<NotFoundPage/>}/>
           </Route>
         </Routes>

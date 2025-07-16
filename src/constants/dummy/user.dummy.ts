@@ -12,14 +12,6 @@ export interface UserType {
   isPublic: boolean;
 }
 
-export const UserRankFinder: Record<UserRankType, string> = {
-  "adventure": "탐험",
-  "mining": "채광",
-  "money": "소지금",
-  "woodCutting": "벌목",
-  "hunt": "사냥"
-}
-
 interface rankInfo {
   ranking: number;
   level: number;

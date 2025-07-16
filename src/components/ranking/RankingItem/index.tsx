@@ -1,7 +1,11 @@
-import { UserRankData } from "@src/types/user/user.type";
+import { UserRankENUM } from "@src/types/user/user.type";
 import * as S from "./style";
+import { RankRes } from "@src/types/ranking/ranking.type";
 
-const RankingItem = ({ rank, username, nickname, level, guild, joinedAt, playtime, rankType }: UserRankData) => (
+interface RankingItemProps extends RankRes {
+  rankType: UserRankENUM;
+}
+const RankingItem = ({ rank, username, nickname, level, guildName, joinDate, totalPlayTime, rankType }:RankingItemProps ) => (
   <S.Container>
     <S.Rank>{`#${rank}`}</S.Rank>
     <S.UserInfo>
@@ -11,10 +15,10 @@ const RankingItem = ({ rank, username, nickname, level, guild, joinedAt, playtim
         <span>{username}</span>
       </div>
     </S.UserInfo>
-    <S.UserDetailItem>{`${level[rankType]}${rankType === "money" ? "원" : "Lv"}`}</S.UserDetailItem>
-    <S.UserDetailItem>{guild}</S.UserDetailItem>
-    <S.UserDetailItem>{joinedAt}</S.UserDetailItem>
-    <S.Playtime>{`${playtime}시간`}</S.Playtime>
+    <S.UserDetailItem>{`${level}${rankType === "MONEY" ? "원" : "Lv"}`}</S.UserDetailItem>
+    <S.UserDetailItem>{guildName}</S.UserDetailItem>
+    <S.UserDetailItem>{joinDate}</S.UserDetailItem>
+    <S.Playtime>{`${totalPlayTime}시간`}</S.Playtime>
   </S.Container>
 );
 
